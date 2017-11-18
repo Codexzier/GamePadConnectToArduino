@@ -9,5 +9,7 @@ Anforderung:
 - Motor Shield
 - Batterie mit mindest 5V
 
-Etwas mehr zu diesem kleinen Beispiel findet ihr auf meinem Blog. 
+Etwas mehr zu diesem kleinen Beispiel findet ihr auf meinem Blog.
+http://meineweltinmeinemkopf.blogspot.de/2017/11/servo-mit-dem-xbox-controller-steuern.html
+
 
