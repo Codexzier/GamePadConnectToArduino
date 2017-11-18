@@ -1,0 +1,39 @@
+﻿#include <Servo.h>
+
+Servo servo;
+int servoPin = 9;
+int receivedValue;
+
+void setup() {
+  // Muss die selbe Baudrate haben, 
+  // wie in der MonoGame Anwendung.
+  Serial.begin(115200);
+  
+  // die meisten Servos arbeiten mit einem 
+  // HIGH Signal von 1ms bis 2ms.
+  servo.attach(servoPin, 1000, 2000);
+}
+
+void loop() {
+
+  if( Serial.available() > 0){
+    
+    receivedValue = Serial.read();
+
+    // Den eingelesenen Wert Abschneiden,
+    // falls der maximale Stellwert überschritten wird.
+    if(receivedValue > 180) {
+      receivedValue = 180;
+    }
+    else if(receivedValue < 0) {
+      receivedValue = 0;
+    }
+
+    // alle weiteren eingegangenen bytes werden verworfen
+    Serial.flush();
+  }
+
+  // Aktuellen Einstellwert festlegen.
+  servo.write(receivedValue);
+  delay(20);
+}
